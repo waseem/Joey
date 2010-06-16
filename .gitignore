@@ -1,0 +1,5 @@
+*.vim
+pkg
+doc
+Manifest
+tmp
