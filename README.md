@@ -47,7 +47,7 @@ In Joey, call to users.hasAppPermission is sheilded behind a Joey::User#has_app_
 
 A more complex use cases arises when someone intends to add an application specific methods to different nodes. e.g.
 
-An application forces a user to give his real email address instead of proxy email when prompted for email extended permssions. One can include a module with custom methods.
+An application intends to know if a user has given his proxy email while giving the email extended permission. One can include a module with custom methods.
 
     module FacebookUser
 
