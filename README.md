@@ -45,7 +45,7 @@ In Joey, call to users.hasAppPermission is sheilded behind a Joey::User#has_app_
     me = koala_client.me
     me.has_app_permission?(:email) # => true or false
 
-A more complex use cases arises when someone intends to add an application specific methods to different nodes. e.g.
+A more complex use case arises when someone intends to add application specific methods to different nodes. e.g.
 
 An application intends to know if a user has given his proxy email while giving the email extended permission. One can include a module with custom methods.
 
@@ -60,14 +60,14 @@ An application intends to know if a user has given his proxy email while giving 
 
       def has_proxy_email?
         if self.has_app_permission?(:email)
-          return self.email =~ /@proxymail\.facebooo\.come/
+          return self.email =~ /@proxymail\.facebook\.com/
         else
           return true
         end
       end
     end
 
-and somewhere when you intialize your application like 'config/initializers/joey_patch.rb'
+and somewhere when you intialize your application like 'config/initializers/joey_patch.rb' in Rails
 
     Joey::User.send(:include, FacebookUser)
 
