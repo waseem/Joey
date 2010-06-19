@@ -2,7 +2,7 @@ Joey
 ====
 Joey(<a href="http://github.com/waseem/joey">http://github.com/waseem/joey</a>) provides object wrappers for nodes in the Facebook OpenGraph. It also provides wrappers for the data returned from facebook REST api. This gem depends upon Koala(<a href="http://github.com/arsduo/koala">http://github.com/arsduo/koala</a>).
 
-This discussion(http://groups.google.com/group/koala-users/browse_thread/thread/650be4f3377aef48) sums up the motivation to create Joey and what it intends to accomplish.
+This discussion(<a href="http://groups.google.com/group/koala-users/browse_thread/thread/650be4f3377aef48">http://groups.google.com/group/koala-users/browse_thread/thread/650be4f3377aef48</a>) sums up the motivation to create Joey and what it intends to accomplish.
 
 Wrappers
 ----
