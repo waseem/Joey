@@ -10,10 +10,12 @@ module Joey
     module ClassMethods
     end
 
+    # return the currently connected user
     def me
       get_and_map('me', Joey::User)
     end
 
+    # revoke an extended permissions granted by current connected user
     def revoke_app_permission(ext_perm)
       # no need to boolianize. It returns true/false.
       self.rest_call("auth.revokeExtendedPermission", :perm => ext_perm.to_s)
@@ -33,6 +35,7 @@ module Joey
       map_data(data,klass)
     end
 
+    # map the returned data to a node class
     def map_data(data, klass = nil)
       raise_error_if_necessary(data)
       hash_or_array = extract_hash_or_array(data, klass)
