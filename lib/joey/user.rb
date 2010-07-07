@@ -2,13 +2,12 @@ module Joey
   class User < Profile
     include ParserHelpers
     
-    # New Graph API has gender while old REST api has sex. I don't know why facebook does these kind of things.
-    define_properties :first_name, :last_name, :middle_name, :link, :about, :about_me, :birthday, :gender, :sex,
+    define_properties :first_name, :last_name, :middle_name, :link, :about, :about_me, :birthday, :gender,
           :email, :website, :timezone, :updated_time, :verified, :religion, :political
     define_properties :pic_small, :pic_big, :pic_square, :pic, :pic_big_with_logo, :pic_small_with_logo,
           :pic_square_with_logo, :pic_with_logo
     define_properties :is_app_user, :books, :username, :significant_other_id, :meeting_for, :tv, :meeting_sex, :relationship_status
-    define_properties :wall_count, :uid, :movies, :birthday_date, :notes_count, :activities, :profile_blurb, :music, :music, :locale
+    define_properties :wall_count, :uid, :movies, :sex, :birthday_date, :notes_count, :activities, :profile_blurb, :music, :music, :locale
     define_properties :profile_url, :profile_update_time, :interests, :is_blocked, :quotes
     
     def self.recognize?(hash)
@@ -30,22 +29,19 @@ module Joey
     hash_populating_accessor :family, "Relative"
 
     #has_association :activities,"Activity"
+    has_association :friends, "User"
+    has_association :home, "Post"
     #has_association :interests, "Interest"
     #has_association :music, "Music"
     #has_association :books, "Book"
     #has_association :movies, "Movie"
     has_association :television, "Television"
     has_association :likes, "Page"
-    has_association :friends, "User"
     
-    # Does the current user has an extender permission
     def has_app_permission?(ext_perm)
       boolianize(client.rest_call("users.hasAppPermission", :ext_perm => ext_perm.to_s))
     end
 
-    # Get information about current user's friends.
-    # A lot of information is not available in Graph api or is available but
-    # only after making several requests to Facebook.
     def friends!(ids)
       data = self.client.rest_call('users.getInfo', :uids => ids, :fields =>
                                                 'about_me,activities,affiliations,books,birthday,birthday_date,current_location,education_history,

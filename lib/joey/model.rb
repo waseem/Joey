@@ -54,5 +54,9 @@ module Joey
       #add_creation_method(name, klass)
     end
 
+    def self.find(id, client = nil)
+      client.get_and_map(id, self)
+    end
+
   end
 end
