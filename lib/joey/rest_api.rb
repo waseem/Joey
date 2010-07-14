@@ -77,7 +77,9 @@ module Joey
     end
     
     def constantize_string(klass)
-      klass.is_a?(String) ? Joey.const_get(klass) : klass
+      # FIXME: cost_get is buggy on some versions of Ruby
+      # klass.is_a?(String) ? Joey.const_get(klass) : klass
+      klass.is_a?(String) ? (klass =~ /Joey/ ? klass.constantize : ("Joey::"+ klass).constantize) : klass
     end
     
     def determine_class(klass_or_klasses, data)
