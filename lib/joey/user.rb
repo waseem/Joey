@@ -8,7 +8,7 @@ module Joey
           :pic_square_with_logo, :pic_with_logo
     define_properties :is_app_user, :books, :username, :significant_other_id, :meeting_for, :tv, :meeting_sex, :relationship_status
     define_properties :wall_count, :uid, :movies, :sex, :birthday_date, :notes_count, :activities, :profile_blurb, :music, :music, :locale
-    define_properties :profile_url, :profile_update_time, :interests, :is_blocked, :quotes, :interested_in
+    define_properties :profile_url, :profile_update_time, :interests, :is_blocked, :quotes, :interested_in, :bio
     
     def self.recognize?(hash)
       !hash.has_key?("category")
