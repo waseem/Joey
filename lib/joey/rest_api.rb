@@ -21,8 +21,8 @@ module Joey
 
     # path can be some node id in the Facebook Graph e.g. 'me', 'me/feed', '1234567890/feed'.
     # klass is wrapper class for that node.
-    def get_and_map(path, klass = nil)
-      data = self.get_object(path)
+    def get_and_map(path, klass = nil, args = {})
+      data = self.get_object(path, args)
       map_data(data, klass)
     end
 

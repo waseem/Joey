@@ -54,8 +54,10 @@ module Joey
       #add_creation_method(name, klass)
     end
 
-    def self.find(id, client = nil)
-      client.get_and_map(id, self)
+    ##
+    # Get some information of a node in the Graph.
+    def self.find(id, client = nil, args = {})
+      client.get_and_map(id, self, args)
     end
 
   end

@@ -5,9 +5,9 @@ module Joey
     define_properties :first_name, :last_name, :middle_name, :link, :about, :about_me, :birthday, :gender,
           :email, :website, :timezone, :updated_time, :verified, :religion, :political
     define_properties :pic_small, :pic_big, :pic_square, :pic, :pic_big_with_logo, :pic_small_with_logo,
-          :pic_square_with_logo, :pic_with_logo
+          :pic_square_with_logo, :pic_with_logo, :picture
     define_properties :is_app_user, :books, :username, :significant_other_id, :meeting_for, :tv, :meeting_sex, :relationship_status
-    define_properties :wall_count, :uid, :movies, :sex, :birthday_date, :notes_count, :activities, :profile_blurb, :music, :music, :locale
+    define_properties :wall_count, :uid, :movies, :sex, :birthday_date, :notes_count, :activities, :profile_blurb, :music, :locale
     define_properties :profile_url, :profile_update_time, :interests, :is_blocked, :quotes, :interested_in, :bio
     
     def self.recognize?(hash)
