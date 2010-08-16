@@ -9,8 +9,8 @@ module Joey
         
     hash_populating_accessor :actions, "Action"
     hash_populating_accessor :comments, "Comment"
-    hash_populating_accessor :from, "User"
-    hash_populating_accessor :to, "User"
+    hash_populating_accessor :from, "User", "Page"
+    hash_populating_accessor :to, "User", "Page"
     hash_populating_accessor :privacy, "Privacy"
     
     #def likes_create

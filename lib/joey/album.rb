@@ -7,7 +7,7 @@ module Joey
     hash_populating_accessor :from, "User", "Page"
     hash_populating_accessor :comments, "Comment"
     has_association :photos, "Photo"
-    #has_association :comments, "Comment"
+    has_association :comments, "Comment"
     
   end
 end

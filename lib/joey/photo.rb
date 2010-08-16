@@ -5,5 +5,8 @@ module Joey
     #creation_properties :message
     
     hash_populating_accessor :from, "User","Page"
+    hash_populating_accessor :comments, "Comment"
+    hash_populating_accessor :tags, "Tag"
+    #has_association :comments, "Comment"
   end
 end
