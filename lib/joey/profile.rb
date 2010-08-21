@@ -17,5 +17,14 @@ module Joey
     def to_s
       name
     end
+
+    def validate
+      valid = true
+    end
+
+    def valid?
+      self.validate
+      self.errors.empty?
+    end
   end
 end

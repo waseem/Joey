@@ -3,10 +3,12 @@ module Joey
 
     class KoalaClientRequiredError < Exception; end
 
-    attr_accessor :client
+    attr_accessor :client, :errors
 
     def initialize(hash = {}, client = nil)
       self.client = client
+      self.errors = []
+
       super(hash || {})
     end
 

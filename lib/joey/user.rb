@@ -59,5 +59,19 @@ module Joey
       user.id = user.uid
       user
     end
+
+    def validate
+      errors << { :message => 'id should not be nil' } if id.nil?
+      errors << { :message => "name should be string but is #{name.inspect}" } unless name.is_a?(String)
+      errors << { :message => "gender should be 'male' or 'female' but is #{gender.inspect}" } unless ['male', 'female'].include?(gender)
+      errors << { :message => "pic big is neither string nor nil but is #{pic_big.inspect}" } unless pic_big.is_a?(String) || pic_big.nil?
+      errors << { :message => "current location is neither Joey::Location nor nil but is #{current_location.inspect}" } unless current_location.is_a?(Joey::Location) || current_location.nil?
+      updated_time.to_time rescue errors << { :message => 'updated_time is not compatible' }
+    end
+
+    def valid?
+      self.validate
+      self.errors.empty?
+    end
   end
 end

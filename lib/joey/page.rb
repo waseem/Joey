@@ -16,5 +16,15 @@ module Joey
       hash.has_key?("category")
     end
     
+    def validate
+      valid = true
+      errors << { :message => 'id should not be nil' } if id.nil?
+      errors << { :message => "name should be string but is #{name.inspect}" } unless name.is_a?(String)
+    end
+
+    def valid?
+      self.validate
+      self.errors.empty?
+    end
   end
 end

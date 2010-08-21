@@ -9,5 +9,13 @@ module Joey
     has_association :photos, "Photo"
     has_association :comments, "Comment"
     
+    def validate
+      valid = true
+    end
+
+    def valid?
+      self.validate
+      self.errors.empty?
+    end
   end
 end

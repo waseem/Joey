@@ -6,5 +6,14 @@ module Joey
     hash_populating_accessor :employer, "Page"
     hash_populating_accessor :location, "Page"
     hash_populating_accessor :position, "Page"
+
+    def validate
+      valid = true
+    end
+
+    def valid?
+      self.validate
+      self.errors.empty?
+    end
   end
 end

@@ -37,6 +37,8 @@ module Joey
       raise_error_if_necessary(data)
       hash_or_array = extract_hash_or_array(data, klass)
       hash_or_array = map_to_class(hash_or_array, klass) if klass
+      # TODO: Validate an object here.
+      #hash_or_array.validate and puts hash_or_array.class.inspect if hash_or_array.is_a?(Model)
       hash_or_array
     end
 
@@ -66,6 +68,7 @@ module Joey
       else
         hash_or_array = create_instance(klass, hash_or_array)
       end
+      hash_or_array
     end
 
     def create_instance(klass, data)

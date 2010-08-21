@@ -8,5 +8,14 @@ module Joey
     hash_populating_accessor :comments, "Comment"
     hash_populating_accessor :tags, "Tag"
     #has_association :comments, "Comment"
+
+    def validate
+      valid = true
+    end
+
+    def valid?
+      self.validate
+      self.errors.empty?
+    end
   end
 end
