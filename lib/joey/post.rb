@@ -2,7 +2,7 @@ module Joey
   class Post < Model
 
     define_properties :id, :message, :picture, :link, :name, :caption, 
-      :description, :source, :icon, :attribution, :actions, :likes,
+      :description, :source, :icon, :attribution, :likes,
       :created_time, :updated_time, :type
 
     #creation_properties :message, :picture, :link, :name, :description

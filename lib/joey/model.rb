@@ -58,6 +58,7 @@ module Joey
 
     ##
     # Get some information of a node in the Graph.
+    # Joey::Post.find('19440638720_133872233324170', client, :fields => 'name,link,description,comments')
     def self.find(id, client = nil, args = {})
       client.get_and_map(id, self, args)
     end

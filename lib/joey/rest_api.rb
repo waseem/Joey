@@ -58,6 +58,9 @@ module Joey
         f.next_url = hash["paging"]["next"]
         f.previous_url = hash["paging"]["previous"]
       end
+      if hash["count"]
+        f.count = hash['count']
+      end
       f
     end
 
