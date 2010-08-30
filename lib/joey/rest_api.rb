@@ -26,6 +26,11 @@ module Joey
       map_data(data, klass)
     end
 
+    def get_all_and_map(ids, klass = nil, args = {})
+      data = self.get_objects(ids, args)
+      map_data({ 'data' => data.values }, klass)
+    end
+
     def get_and_map_url(url, klass = nil)
       # FIXME: following only returns a hash like {"id"=>"http://graph.facebook.com/100000637452380/feed"}
       # try to write a method in koala which can request absolute Facebook urls. See fetching_array.rb:7.

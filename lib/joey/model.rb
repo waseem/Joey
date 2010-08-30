@@ -44,6 +44,20 @@ module Joey
       #end
     #end
     
+    def self.hash_populating_association(method_name, *klass)
+      define_method "#{method_name}=" do |hash|
+        instance_variable_set("@#{method_name}", client.map_data(hash, klass))
+      end
+
+      define_method(method_name) do
+        if (ret = instance_variable_get("@#{method_name}")).nil?
+          ret = client.get_and_map("#{id}/#{method_name}", klass)
+          instance_variable_set("@#{method_name}", ret)
+        end
+        return ret
+      end
+    end
+
     def self.has_association(name, klass)
       define_method(name) do
         if (ret = instance_variable_get("@#{name}")).nil?
@@ -63,5 +77,8 @@ module Joey
       client.get_and_map(id, self, args)
     end
 
+    def self.get_all(ids, client = nil, args = {})
+      client.get_all_and_map(ids, self, args)
+    end
   end
 end
