@@ -56,7 +56,7 @@ module Joey
     def info(args)
       data = self.client.rest_call('users.getInfo', :uids => self.id, :fields => args.join(','))
       user = self.client.map_data(data, self.class).first
-      user.id = user.uid
+      user.id = self.id
       user
     end
 
