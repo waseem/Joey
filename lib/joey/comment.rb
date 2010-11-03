@@ -6,7 +6,7 @@ module Joey
 
     def validate
       created_time.to_time rescue errors << { :message => 'created_time is not compatible' }
-      updated_time.to_time rescue errors << { :message => 'updated_time is not compatible' }
+      # updated_time.to_time rescue errors << { :message => 'updated_time is not compatible' }
       errors << { :message => 'id should not be nil' } if id.nil?
       errors << { :message => 'from is not a Joey::User or Joey::Page' } unless from.is_a?(Joey::User) || from.is_a?(Joey::Page)
     end
