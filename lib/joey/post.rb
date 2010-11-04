@@ -12,6 +12,7 @@ module Joey
     hash_populating_accessor :from, "User", "Page"
     hash_populating_accessor :to, "User", "Page"
     hash_populating_accessor :privacy, "Privacy"
+    hash_populating_accessor :properties, "Property"
 
     def validate
       created_time.to_time rescue errors << { :message => 'created_time is not compatible' }
