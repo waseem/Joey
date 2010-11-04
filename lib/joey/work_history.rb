@@ -10,6 +10,7 @@ module Joey
 
     def valid?
       self.validate
+      puts self.errors.inspect unless self.errors.empty?
       self.errors.empty?
     end
 
