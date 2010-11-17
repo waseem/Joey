@@ -2,7 +2,7 @@ module Joey
   class Post < Model
 
     define_properties :id, :message, :picture, :link, :name, :caption, 
-      :description, :source, :icon, :attribution, :likes,
+      :description, :source, :icon, :attribution,
       :created_time, :updated_time, :type
 
     #creation_properties :message, :picture, :link, :name, :description
@@ -13,6 +13,7 @@ module Joey
     hash_populating_accessor :to, "User", "Page"
     hash_populating_accessor :privacy, "Privacy"
     hash_populating_accessor :properties, "Property"
+    hash_populating_accessor :likes, "Like"
 
     def validate
       created_time.to_time rescue errors << { :message => 'created_time is not compatible' }
@@ -20,7 +21,7 @@ module Joey
       errors << { :message => 'id should not be nil' } if id.nil?
       errors << { :message => "name is neither string nor nil but is #{name.inspect}" } unless name.is_a?(String) || name.nil?
       errors << { :message => "message is neither string nor nil but is #{message.inspect}" } unless message.is_a?(String) || message.nil?
-      errors << { :message => "likes is neither string nor nil but is #{likes.inspect}" } unless likes.is_a?(Integer) || likes.nil?
+      errors << { :message => "likes is neither string nor nil but is #{likes.inspect}" } unless likes.is_a?(Integer) || likes.nil? || likes.is_a?(Array)
       errors << { :message => "icon is neither string nor nil but is #{icon.inspect}" } unless icon.is_a?(String) || icon.nil?
       errors << { :message => "attribution is neither string nor nil but is #{attribution.inspect}" } unless attribution.is_a?(String) || attribution.nil?
 

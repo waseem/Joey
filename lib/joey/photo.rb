@@ -1,12 +1,13 @@
 module Joey
   class Photo < Model
     define_properties :id, :name, :picture, :source, :height, :width, :link, :icon,
-      :created_time, :updated_time
+      :created_time, :updated_time, :position
     #creation_properties :message
     
     hash_populating_accessor :from, "User","Page"
     hash_populating_accessor :comments, "Comment"
     hash_populating_accessor :tags, "Tag"
+    hash_populating_accessor :images, "Image"
     #has_association :comments, "Comment"
 
     def validate
