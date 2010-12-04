@@ -7,7 +7,7 @@ module Joey
     has_association :photos, "Photo"
     #has_association :groups, "Group"
     has_association :albums,"Album"
-    #has_association :videos, "Video"
+    has_association :videos, "Video"
     #has_association :notes, "Note"
     has_association :posts, "Post"
     #has_association :events, "Event"

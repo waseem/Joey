@@ -3,7 +3,7 @@ module Joey
     define_properties :id, :name, :x, :y, :created_time
 
     def validate
-      valid = true
+      created_time.to_time rescue errors << { :message => 'created_time is not compatible' }
     end
 
     def valid?
