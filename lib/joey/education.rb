@@ -1,7 +1,7 @@
 module Joey
   class Education < Model
     
-    define_properties :start_date, :end_date, :degree
+    define_properties :start_date, :end_date, :degree, :type
     
     hash_populating_accessor :school, "Page"
     hash_populating_accessor :year, "Page"
