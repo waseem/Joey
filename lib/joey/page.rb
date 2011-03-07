@@ -1,7 +1,7 @@
 module Joey
   class Page < Profile
         
-    define_properties :id, :name, :category, :username
+    define_properties :id, :name, :category, :username, :category
     
     # General
     define_properties :likes, :link, :picture, :has_added_app
