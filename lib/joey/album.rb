@@ -1,7 +1,8 @@
 module Joey
   class Album < Model
     
-    define_properties :id, :name, :description, :link, :count, :created_time, :updated_time, :privacy, :location, :type, :picture
+    define_properties :id, :name, :description, :link, :count, :created_time, :updated_time, :privacy, :location, :type, :picture,
+                      :cover_photo
     #creation_properties :name, :message
     
     hash_populating_accessor :from, "User", "Page"
