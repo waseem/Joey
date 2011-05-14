@@ -3,7 +3,7 @@ module Joey
 
     define_properties :id, :message, :picture, :link, :name, :caption, 
       :description, :source, :icon, :attribution,
-      :created_time, :updated_time, :type, :object_id
+      :created_time, :updated_time, :type, :object_id, :application
 
     #creation_properties :message, :picture, :link, :name, :description
 
