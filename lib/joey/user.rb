@@ -40,7 +40,8 @@ module Joey
     has_association :likes, "Page"
 
     def has_app_permission?(ext_perm)
-      boolianize(client.rest_call("users.hasAppPermission", :ext_perm => ext_perm.to_s))
+      permissions = client.get_object('me/permissions', {})['data'].first
+      boolianize(permissions[ext_perm])
     end
 
     def friends!(ids)
